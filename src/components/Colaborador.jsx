@@ -15,7 +15,7 @@ const Colaborador = ({colaborador}) => {
             <div>
                 <button
                     type="button"
-                    className="bg-red-600 px-4 py-3 text-white uppercase font-bold text-sm rounded-lg"
+                    className="bg-red-600 px-4 py-3 text-white uppercase font-bold text-sm rounded-lg transition-colors hover:bg-red-800"
                     onClick={() => handleModalEliminarColaborador(colaborador)}
                 >Eliminar</button>
             </div>

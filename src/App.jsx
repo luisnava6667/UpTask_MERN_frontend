@@ -1,8 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-
 import AuthLayout from './layouts/AuthLayout'
 import RutaProtegida from './layouts/RutaProtegida'
-
 import Login from './paginas/Login'
 import Registrar from './paginas/Registrar'
 import OlvidePassword from './paginas/OlvidePassword'
@@ -13,15 +11,10 @@ import NuevoProyecto from './paginas/NuevoProyecto'
 import Proyecto from './paginas/Proyecto'
 import EditarProyecto from './paginas/EditarProyecto'
 import NuevoColaborador from './paginas/NuevoColaborador'
-
 import {AuthProvider} from './context/AuthProvider'
 import {ProyectosProvider} from './context/ProyectosProvider'
 
-
-
 function App() {
-
-
   return (
     <BrowserRouter>
       <AuthProvider>

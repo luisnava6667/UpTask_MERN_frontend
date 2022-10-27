@@ -16,9 +16,14 @@ const FormularioColaborador = () => {
           error: true
         })
         return
+    }else{
+      setTimeout(()=>{
+          mostrarAlerta({})
+      
+      }, 3000);
+      submitColaborador(email)
     }
 
-    submitColaborador(email)
 
   }
 
@@ -26,7 +31,7 @@ const FormularioColaborador = () => {
 
   return (
     <form
-      className="bg-white py-10 px-5 w-full md:w-1/2 rounded-lg shadow"
+      className="bg-white py-5 px-5 w-full md:w-1/2 rounded-lg shadow"
       onSubmit={handleSubmit}
     >
       {msg && <Alerta alerta={alerta} />}
