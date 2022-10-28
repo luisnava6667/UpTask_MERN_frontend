@@ -31,6 +31,9 @@ const FormularioProyecto = () => {
         msg: "Todos los Campos son Obligatorios",
         error: true,
       });
+      setTimeout(()=>{
+        mostrarAlerta({});      
+      },2000);
 
       return;
     }

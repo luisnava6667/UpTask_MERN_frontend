@@ -44,6 +44,10 @@ const ModalFormularioTarea = () => {
                 msg: 'Todos los campos son obligatorios',
                 error: true
             })
+            setTimeout(()=>{
+                mostrarAlerta({});      
+              },2000);
+        
             return
         }
 

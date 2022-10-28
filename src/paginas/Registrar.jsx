@@ -18,6 +18,7 @@ const Registrar = () => {
                msg: 'Todos los campos son obligatorios',
                error: true
            })
+           
            return
         }
 
@@ -37,7 +38,10 @@ const Registrar = () => {
             return
         }
 
-        setAlerta({})
+        setTimeout(()=>{
+            mostrarAlerta({});      
+          },2000);
+    
 
         // Crear el usuario en la API
         try {
