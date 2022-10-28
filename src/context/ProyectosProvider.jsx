@@ -159,7 +159,6 @@ const ProyectosProvider = ({ children }) => {
       };
 
       const { data } = await clienteAxios(`/proyectos/${id}`, config);
-      
       setProyecto(data);
       setAlerta({});
     } catch (error) {
@@ -171,11 +170,11 @@ const ProyectosProvider = ({ children }) => {
       setTimeout(() => {
         setAlerta({});
       }, 2000);
- } finally {
-  setTimeout(()=>{  
-    setCargando(false);
-  },1000);
-    }   
+    } finally {
+      setTimeout(() => {
+        setCargando(false);
+      }, 1000);
+    }
   };
 
   const eliminarProyecto = async (id) => {
@@ -233,8 +232,6 @@ const ProyectosProvider = ({ children }) => {
 
       const { data } = await clienteAxios.post("/tareas", tarea, config);
 
-      setAlerta({});
-      socket.emit("nueva tarea", data);
       Swal.fire({
         icon: "success",
         title: "Tarea creada correctamente",
@@ -244,14 +241,16 @@ const ProyectosProvider = ({ children }) => {
           Swal.showLoading();
         },
       });
+      setAlerta({});
       setTimeout(() => {
         // setAlerta({});
-        Swal.close();
-
+        setAlerta({});
         setModalFormularioTarea(false);
+        Swal.close();
       }, 2000);
 
       // SOCKET IO
+      socket.emit("nueva tarea", data);
     } catch (error) {
       console.log(error);
     }
@@ -284,15 +283,12 @@ const ProyectosProvider = ({ children }) => {
       console.log(error);
     }
   };
-  const handleModalEliminarProyecto = () => {
-    setProyecto({});
-    setModalEliminarProyecto(!modalEliminarProyecto);
-  };
 
   const handleModalEditarTarea = (tarea) => {
     setTarea(tarea);
     setModalFormularioTarea(true);
   };
+
   const handleModalEliminarTarea = (tarea) => {
     setTarea(tarea);
     setModalEliminarTarea(!modalEliminarTarea);
@@ -390,7 +386,6 @@ const ProyectosProvider = ({ children }) => {
           Swal.showLoading();
         },
       });
-
       setColaborador({});
 
       setTimeout(() => {

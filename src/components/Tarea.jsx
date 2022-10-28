@@ -15,12 +15,7 @@ const Tarea = ({ tarea }) => {
         <p className="mb-1 text-xl">{nombre}</p>
         <p className="mb-1 text-sm text-gray-500 uppercase">{descripcion}</p>
         <p className="mb-1 text-sm">{formatearFecha(fechaEntrega)}</p>
-        <p className="mb-1 text-gray-600">
-          Prioridad:{" "}
-          <span className={`${prioridad === "Baja" && "bg-green-900"} ${prioridad === "Media" && "bg-amber-400"} ${prioridad === "Alta" && "bg-red-800"}  text-white p-1 uppercase rounded-lg font-bold`}>
-            {prioridad}
-          </span>
-        </p>
+        <p className="mb-1 text-gray-600">Prioridad: {prioridad}</p>
         {estado && (
           <p className="text-xs bg-green-600 uppercase p-1 rounded-lg text-white">
             Completada por: {tarea.completado.nombre}
@@ -31,7 +26,7 @@ const Tarea = ({ tarea }) => {
       <div className="flex flex-col lg:flex-row gap-2">
         {admin && (
           <button
-            className="bg-indigo-600 px-4 py-3 text-white uppercase font-bold text-sm rounded-lg transition-colors hover:bg-indigo-800"
+            className="bg-indigo-600 px-4 py-3 text-white uppercase font-bold text-sm rounded-lg"
             onClick={() => handleModalEditarTarea(tarea)}
           >
             Editar
@@ -40,9 +35,7 @@ const Tarea = ({ tarea }) => {
 
         <button
           className={`${
-            estado
-              ? "bg-sky-600 transition-colors hover:bg-sky-800"
-              : "bg-gray-600 transition-colors hover:bg-gray-800"
+            estado ? "bg-sky-600" : "bg-gray-600"
           } px-4 py-3 text-white uppercase font-bold text-sm rounded-lg`}
           onClick={() => completarTarea(_id)}
         >
@@ -51,7 +44,7 @@ const Tarea = ({ tarea }) => {
 
         {admin && (
           <button
-            className="bg-red-600 px-4 py-3 transition-colors hover:bg-red-800 text-white uppercase font-bold text-sm rounded-lg "
+            className="bg-red-600 px-4 py-3 text-white uppercase font-bold text-sm rounded-lg"
             onClick={() => handleModalEliminarTarea(tarea)}
           >
             Eliminar
