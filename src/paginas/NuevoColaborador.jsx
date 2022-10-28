@@ -18,6 +18,13 @@ const NuevoColaborador = () => {
   useEffect(() => {
     obtenerProyecto(params.id);
   }, []);
+  useEffect(() => {
+    setTimeout(()=>{
+      cargando(false)
+    
+    }, 2500);
+  
+  }, [])
 
   if (!proyecto?._id) return <Alerta alerta={alerta} />;
 
@@ -32,7 +39,7 @@ const NuevoColaborador = () => {
       </div>
 
       {cargando ? (
-        <p className="text-center">Cargando...</p>
+        <p className="text-center"></p>
       ) : (
         colaborador?._id && (
           <div className="flex justify-center mt-10">

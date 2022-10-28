@@ -35,7 +35,7 @@ const Sidebar = () => {
             to={"/proyectos"}
             className="bg-teal-600 w-full p-3 uppercase font-bold text-white rounded cursor-pointer transition-colors hover:bg-teal-700 flex md:flex-row justify-center text-center"
           >
-            Ver Todos los Proyecto
+            Volver a Proyectos
           </Link>
         ) : null}
         {pathname === `/proyectos/editar/${params.id}` ||
